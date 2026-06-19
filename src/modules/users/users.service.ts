@@ -20,6 +20,7 @@ const getUsersFromDB = async() =>{
     const result = pool.query(`
       SELECT * FROM users
       `)
+      delete (await result).rows[0].password;
     return result;
 }
 
